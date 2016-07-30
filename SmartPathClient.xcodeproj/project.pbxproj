@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085D2C972AF201E57153992F /* Pods_SmartPathClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */; };
 		366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917AE1D4C2C4900836477 /* AppDelegate.swift */; };
 		366917B11D4C2C4900836477 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917B01D4C2C4900836477 /* ViewController.swift */; };
 		366917B41D4C2C4900836477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917B21D4C2C4900836477 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		366917BC1D4C2C4A00836477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */; };
 		366917C71D4C2C4A00836477 /* SmartPathClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917C61D4C2C4A00836477 /* SmartPathClientTests.swift */; };
 		366917D21D4C2C4A00836477 /* SmartPathClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */; };
+		F248B9E183DC7F5BA667192F /* Pods_SmartPathClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F8309397CFD3A1C048D16B /* Pods_SmartPathClientUITests.framework */; };
+		FAFE7F881D68A941A3CA1014 /* Pods_SmartPathClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE521CE134F0073B5F7F74FD /* Pods_SmartPathClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C60DD681B14A6D651907210 /* Pods-SmartPathClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientUITests/Pods-SmartPathClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		314FF205EC9BA3822FCBFB51 /* Pods-SmartPathClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		366917AB1D4C2C4900836477 /* SmartPathClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPathClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366917AE1D4C2C4900836477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		366917B01D4C2C4900836477 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		366917CD1D4C2C4A00836477 /* SmartPathClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPathClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPathClientUITests.swift; sourceTree = "<group>"; };
 		366917D31D4C2C4A00836477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPathClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0FEA398EB790919C8F82BF /* Pods-SmartPathClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClient/Pods-SmartPathClient.release.xcconfig"; sourceTree = "<group>"; };
+		A0A9BA5910731CAD7A141A0B /* Pods-SmartPathClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		A7F8309397CFD3A1C048D16B /* Pods_SmartPathClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPathClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2782AD9B406D84E25EE2CB7 /* Pods-SmartPathClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClient/Pods-SmartPathClient.debug.xcconfig"; sourceTree = "<group>"; };
+		EE521CE134F0073B5F7F74FD /* Pods_SmartPathClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPathClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F841EB25B7A1BD66D8D152B3 /* Pods-SmartPathClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientUITests/Pods-SmartPathClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFE7F881D68A941A3CA1014 /* Pods_SmartPathClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				085D2C972AF201E57153992F /* Pods_SmartPathClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F248B9E183DC7F5BA667192F /* Pods_SmartPathClientUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02C183196FC4C1D4008ACFC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE521CE134F0073B5F7F74FD /* Pods_SmartPathClient.framework */,
+				8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */,
+				A7F8309397CFD3A1C048D16B /* Pods_SmartPathClientUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		366917A21D4C2C4900836477 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				366917C51D4C2C4A00836477 /* SmartPathClientTests */,
 				366917D01D4C2C4A00836477 /* SmartPathClientUITests */,
 				366917AC1D4C2C4900836477 /* Products */,
+				F0DF9A63941EA210D44697E0 /* Pods */,
+				02C183196FC4C1D4008ACFC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,19 @@
 			path = SmartPathClientUITests;
 			sourceTree = "<group>";
 		};
+		F0DF9A63941EA210D44697E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2782AD9B406D84E25EE2CB7 /* Pods-SmartPathClient.debug.xcconfig */,
+				9E0FEA398EB790919C8F82BF /* Pods-SmartPathClient.release.xcconfig */,
+				314FF205EC9BA3822FCBFB51 /* Pods-SmartPathClientTests.debug.xcconfig */,
+				A0A9BA5910731CAD7A141A0B /* Pods-SmartPathClientTests.release.xcconfig */,
+				1C60DD681B14A6D651907210 /* Pods-SmartPathClientUITests.debug.xcconfig */,
+				F841EB25B7A1BD66D8D152B3 /* Pods-SmartPathClientUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 366917D61D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClient" */;
 			buildPhases = (
+				2F382A2F6BA5CF2527218F87 /* [CP] Check Pods Manifest.lock */,
 				366917A71D4C2C4900836477 /* Sources */,
 				366917A81D4C2C4900836477 /* Frameworks */,
 				366917A91D4C2C4900836477 /* Resources */,
+				DAFC6F98ABD82C3AEDD6870A /* [CP] Embed Pods Frameworks */,
+				75FBD51A02577F0AC1935A63 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 366917D91D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientTests" */;
 			buildPhases = (
+				E437B10E63A8D1FF81177451 /* [CP] Check Pods Manifest.lock */,
 				366917BE1D4C2C4A00836477 /* Sources */,
 				366917BF1D4C2C4A00836477 /* Frameworks */,
 				366917C01D4C2C4A00836477 /* Resources */,
+				5523CD68CFF1D5F57E89AB1D /* [CP] Embed Pods Frameworks */,
+				3C60CA7782C6F0AB3B66A86C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 366917DC1D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientUITests" */;
 			buildPhases = (
+				39DB565773D14B441DEB3070 /* [CP] Check Pods Manifest.lock */,
 				366917C91D4C2C4A00836477 /* Sources */,
 				366917CA1D4C2C4A00836477 /* Frameworks */,
 				366917CB1D4C2C4A00836477 /* Resources */,
+				070CB618271CE314BF8895E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +301,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		070CB618271CE314BF8895E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPathClientUITests/Pods-SmartPathClientUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F382A2F6BA5CF2527218F87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		39DB565773D14B441DEB3070 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3C60CA7782C6F0AB3B66A86C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5523CD68CFF1D5F57E89AB1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75FBD51A02577F0AC1935A63 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPathClient/Pods-SmartPathClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAFC6F98ABD82C3AEDD6870A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPathClient/Pods-SmartPathClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E437B10E63A8D1FF81177451 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		366917A71D4C2C4900836477 /* Sources */ = {
@@ -401,6 +572,7 @@
 		};
 		366917D71D4C2C4A00836477 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2782AD9B406D84E25EE2CB7 /* Pods-SmartPathClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SmartPathClient/Info.plist;
@@ -412,6 +584,7 @@
 		};
 		366917D81D4C2C4A00836477 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E0FEA398EB790919C8F82BF /* Pods-SmartPathClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SmartPathClient/Info.plist;
@@ -423,6 +596,7 @@
 		};
 		366917DA1D4C2C4A00836477 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 314FF205EC9BA3822FCBFB51 /* Pods-SmartPathClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SmartPathClientTests/Info.plist;
@@ -435,6 +609,7 @@
 		};
 		366917DB1D4C2C4A00836477 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0A9BA5910731CAD7A141A0B /* Pods-SmartPathClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SmartPathClientTests/Info.plist;
@@ -447,6 +622,7 @@
 		};
 		366917DD1D4C2C4A00836477 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C60DD681B14A6D651907210 /* Pods-SmartPathClientUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SmartPathClientUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -458,6 +634,7 @@
 		};
 		366917DE1D4C2C4A00836477 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F841EB25B7A1BD66D8D152B3 /* Pods-SmartPathClientUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SmartPathClientUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -486,6 +663,7 @@
 				366917D81D4C2C4A00836477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		366917D91D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +672,7 @@
 				366917DB1D4C2C4A00836477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		366917DC1D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +681,7 @@
 				366917DE1D4C2C4A00836477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
