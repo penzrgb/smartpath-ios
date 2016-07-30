@@ -102,6 +102,7 @@ Where would you like to walk to?
                 <customObject id="SLs-j7-mPy" customClass="LocationSearchController" customModule="SmartPathClient" customModuleProvider="target">
                     <connections>
                         <outlet property="searchField" destination="0uk-K9-PDz" id="Vgc-gY-3hb"/>
+                        <outlet property="searchResultsParent" destination="8bC-Xf-vdC" id="T0R-hB-OII"/>
                     </connections>
                 </customObject>
             </objects>

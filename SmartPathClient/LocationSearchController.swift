@@ -12,6 +12,7 @@ import GoogleMaps
 class LocationSearchController: NSObject, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, GMSAutocompleteFetcherDelegate {
     
     @IBOutlet var searchField: UITextField!
+    @IBOutlet var searchResultsParent: UIView?
     @IBOutlet weak var delegate: LocationSearchControllerDelegate?
     
     var searchRegion: GMSCoordinateBounds?
@@ -66,7 +67,7 @@ class LocationSearchController: NSObject, UITextFieldDelegate, UITableViewDataSo
         if (tableView.superview != nil) {
             return
         }
-        guard let superview = self.searchField?.superview else {
+        guard let superview = self.searchResultsParent ?? self.searchField?.superview else {
             return
         }
 

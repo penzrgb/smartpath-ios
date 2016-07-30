@@ -14,6 +14,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     private let DefaultZoomLevel: Float = 18.0
     private let DefaultMapCenter = CLLocationCoordinate2D(latitude: -38.149918, longitude: 144.361719)
+    private let ZoomEdgeInsets = UIEdgeInsetsMake(140, 30, 30, 30)
     
     @IBOutlet private weak var mapContainer: UIView!
     @IBOutlet private weak var locateMeButton: UIButton!
@@ -21,6 +22,17 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     @IBOutlet private var searchController: LocationSearchController!
     
     private var mapView: GMSMapView!
+    
+    private var destMarker: GMSMarker? {
+        willSet {
+            if newValue != destMarker {
+                destMarker?.map = nil
+            }
+        }
+        didSet {
+            destMarker?.map = self.mapView
+        }
+    }
     
     private var isVisible: Bool = false
     private var hasLocation: Bool = false
@@ -145,7 +157,6 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         guard let placeID = result.placeID else {
             return
         }
-        
         GMSPlacesClient.sharedClient().lookUpPlaceID(placeID) { place, error in
             if let error = error {
                 NSLog("\(self.dynamicType): Unable to look up place ID \(placeID): \(error))")
@@ -153,13 +164,28 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             }
             if let place = place {
                 NSLog("Place selected: \(place.coordinate) \(place.name)")
+                
+                //Create map marker for chosen destination
+                let marker = GMSMarker()
+                marker.position = place.coordinate
+                marker.title = place.name
+                marker.snippet = place.formattedAddress
+                self.destMarker = marker
+                
+                //Pan and zoom the map so that the source and dest are both visible
+                let startCoord = self.locationManager.location?.coordinate ?? self.mapView.camera.target
+                let bounds = GMSCoordinateBounds(coordinate: startCoord, coordinate: place.coordinate)
+                if let camera = self.mapView.cameraForBounds(bounds, insets: self.ZoomEdgeInsets) {
+                    self.userTrackingEnabled = false
+                    self.mapView.animateToCameraPosition(camera)
+                }
             }
         }
     }
     
     func searchControllerDidActivate(controller: LocationSearchController) {
         self.summaryLabel.alpha = 0
-        self.summaryLabel.text = "It's dark out, so we'll take you on the path with the most street lighting.\n\nWhere would you like to walk to?\n"
+        self.summaryLabel.text = "It’s dark out, so we’ll take you on the path with the most street lighting.\n\nWhere would you like to walk to?\n"
         
         UIView.animateWithDuration(0.5, animations: { 
             self.view.layoutIfNeeded()
@@ -205,6 +231,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         return (northEast, southWest)
     }
+    
 
     //MARK: Actions
     
