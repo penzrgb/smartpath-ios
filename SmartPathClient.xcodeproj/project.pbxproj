@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917AE1D4C2C4900836477 /* AppDelegate.swift */; };
+		366917B11D4C2C4900836477 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917B01D4C2C4900836477 /* ViewController.swift */; };
+		366917B41D4C2C4900836477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917B21D4C2C4900836477 /* Main.storyboard */; };
+		366917B71D4C2C4900836477 /* SmartPathClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */; };
+		366917B91D4C2C4A00836477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366917B81D4C2C4A00836477 /* Assets.xcassets */; };
+		366917BC1D4C2C4A00836477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */; };
+		366917C71D4C2C4A00836477 /* SmartPathClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917C61D4C2C4A00836477 /* SmartPathClientTests.swift */; };
+		366917D21D4C2C4A00836477 /* SmartPathClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		366917C31D4C2C4A00836477 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 366917A31D4C2C4900836477 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 366917AA1D4C2C4900836477;
+			remoteInfo = SmartPathClient;
+		};
+		366917CE1D4C2C4A00836477 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 366917A31D4C2C4900836477 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 366917AA1D4C2C4900836477;
+			remoteInfo = SmartPathClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		366917AB1D4C2C4900836477 /* SmartPathClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPathClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		366917AE1D4C2C4900836477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		366917B01D4C2C4900836477 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		366917B31D4C2C4900836477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		366917B61D4C2C4900836477 /* SmartPathClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartPathClient.xcdatamodel; sourceTree = "<group>"; };
+		366917B81D4C2C4A00836477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		366917BB1D4C2C4A00836477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		366917BD1D4C2C4A00836477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366917C21D4C2C4A00836477 /* SmartPathClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPathClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		366917C61D4C2C4A00836477 /* SmartPathClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPathClientTests.swift; sourceTree = "<group>"; };
+		366917C81D4C2C4A00836477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366917CD1D4C2C4A00836477 /* SmartPathClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPathClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPathClientUITests.swift; sourceTree = "<group>"; };
+		366917D31D4C2C4A00836477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		366917A81D4C2C4900836477 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		366917BF1D4C2C4A00836477 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		366917CA1D4C2C4A00836477 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		366917A21D4C2C4900836477 = {
+			isa = PBXGroup;
+			children = (
+				366917AD1D4C2C4900836477 /* SmartPathClient */,
+				366917C51D4C2C4A00836477 /* SmartPathClientTests */,
+				366917D01D4C2C4A00836477 /* SmartPathClientUITests */,
+				366917AC1D4C2C4900836477 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		366917AC1D4C2C4900836477 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				366917AB1D4C2C4900836477 /* SmartPathClient.app */,
+				366917C21D4C2C4A00836477 /* SmartPathClientTests.xctest */,
+				366917CD1D4C2C4A00836477 /* SmartPathClientUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		366917AD1D4C2C4900836477 /* SmartPathClient */ = {
+			isa = PBXGroup;
+			children = (
+				366917AE1D4C2C4900836477 /* AppDelegate.swift */,
+				366917B01D4C2C4900836477 /* ViewController.swift */,
+				366917B21D4C2C4900836477 /* Main.storyboard */,
+				366917B81D4C2C4A00836477 /* Assets.xcassets */,
+				366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */,
+				366917BD1D4C2C4A00836477 /* Info.plist */,
+				366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */,
+			);
+			path = SmartPathClient;
+			sourceTree = "<group>";
+		};
+		366917C51D4C2C4A00836477 /* SmartPathClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				366917C61D4C2C4A00836477 /* SmartPathClientTests.swift */,
+				366917C81D4C2C4A00836477 /* Info.plist */,
+			);
+			path = SmartPathClientTests;
+			sourceTree = "<group>";
+		};
+		366917D01D4C2C4A00836477 /* SmartPathClientUITests */ = {
+			isa = PBXGroup;
+			children = (
+				366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */,
+				366917D31D4C2C4A00836477 /* Info.plist */,
+			);
+			path = SmartPathClientUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		366917AA1D4C2C4900836477 /* SmartPathClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 366917D61D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClient" */;
+			buildPhases = (
+				366917A71D4C2C4900836477 /* Sources */,
+				366917A81D4C2C4900836477 /* Frameworks */,
+				366917A91D4C2C4900836477 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartPathClient;
+			productName = SmartPathClient;
+			productReference = 366917AB1D4C2C4900836477 /* SmartPathClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		366917C11D4C2C4A00836477 /* SmartPathClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 366917D91D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientTests" */;
+			buildPhases = (
+				366917BE1D4C2C4A00836477 /* Sources */,
+				366917BF1D4C2C4A00836477 /* Frameworks */,
+				366917C01D4C2C4A00836477 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				366917C41D4C2C4A00836477 /* PBXTargetDependency */,
+			);
+			name = SmartPathClientTests;
+			productName = SmartPathClientTests;
+			productReference = 366917C21D4C2C4A00836477 /* SmartPathClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		366917CC1D4C2C4A00836477 /* SmartPathClientUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 366917DC1D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientUITests" */;
+			buildPhases = (
+				366917C91D4C2C4A00836477 /* Sources */,
+				366917CA1D4C2C4A00836477 /* Frameworks */,
+				366917CB1D4C2C4A00836477 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				366917CF1D4C2C4A00836477 /* PBXTargetDependency */,
+			);
+			name = SmartPathClientUITests;
+			productName = SmartPathClientUITests;
+			productReference = 366917CD1D4C2C4A00836477 /* SmartPathClientUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		366917A31D4C2C4900836477 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = SmartPath;
+				TargetAttributes = {
+					366917AA1D4C2C4900836477 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					366917C11D4C2C4A00836477 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 366917AA1D4C2C4900836477;
+					};
+					366917CC1D4C2C4A00836477 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 366917AA1D4C2C4900836477;
+					};
+				};
+			};
+			buildConfigurationList = 366917A61D4C2C4900836477 /* Build configuration list for PBXProject "SmartPathClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 366917A21D4C2C4900836477;
+			productRefGroup = 366917AC1D4C2C4900836477 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				366917AA1D4C2C4900836477 /* SmartPathClient */,
+				366917C11D4C2C4A00836477 /* SmartPathClientTests */,
+				366917CC1D4C2C4A00836477 /* SmartPathClientUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		366917A91D4C2C4900836477 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				366917BC1D4C2C4A00836477 /* LaunchScreen.storyboard in Resources */,
+				366917B91D4C2C4A00836477 /* Assets.xcassets in Resources */,
+				366917B41D4C2C4900836477 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		366917C01D4C2C4A00836477 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		366917CB1D4C2C4A00836477 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		366917A71D4C2C4900836477 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				366917B71D4C2C4900836477 /* SmartPathClient.xcdatamodeld in Sources */,
+				366917B11D4C2C4900836477 /* ViewController.swift in Sources */,
+				366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		366917BE1D4C2C4A00836477 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				366917C71D4C2C4A00836477 /* SmartPathClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		366917C91D4C2C4A00836477 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				366917D21D4C2C4A00836477 /* SmartPathClientUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		366917C41D4C2C4A00836477 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 366917AA1D4C2C4900836477 /* SmartPathClient */;
+			targetProxy = 366917C31D4C2C4A00836477 /* PBXContainerItemProxy */;
+		};
+		366917CF1D4C2C4A00836477 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 366917AA1D4C2C4900836477 /* SmartPathClient */;
+			targetProxy = 366917CE1D4C2C4A00836477 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		366917B21D4C2C4900836477 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				366917B31D4C2C4900836477 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				366917BB1D4C2C4A00836477 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		366917D41D4C2C4A00836477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		366917D51D4C2C4A00836477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		366917D71D4C2C4A00836477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SmartPathClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		366917D81D4C2C4A00836477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SmartPathClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		366917DA1D4C2C4A00836477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartPathClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPathClient.app/SmartPathClient";
+			};
+			name = Debug;
+		};
+		366917DB1D4C2C4A00836477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartPathClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPathClient.app/SmartPathClient";
+			};
+			name = Release;
+		};
+		366917DD1D4C2C4A00836477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SmartPathClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClientUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SmartPathClient;
+			};
+			name = Debug;
+		};
+		366917DE1D4C2C4A00836477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SmartPathClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClientUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SmartPathClient;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		366917A61D4C2C4900836477 /* Build configuration list for PBXProject "SmartPathClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				366917D41D4C2C4A00836477 /* Debug */,
+				366917D51D4C2C4A00836477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		366917D61D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				366917D71D4C2C4A00836477 /* Debug */,
+				366917D81D4C2C4A00836477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		366917D91D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				366917DA1D4C2C4A00836477 /* Debug */,
+				366917DB1D4C2C4A00836477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		366917DC1D4C2C4A00836477 /* Build configuration list for PBXNativeTarget "SmartPathClientUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				366917DD1D4C2C4A00836477 /* Debug */,
+				366917DE1D4C2C4A00836477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				366917B61D4C2C4900836477 /* SmartPathClient.xcdatamodel */,
+			);
+			currentVersion = 366917B61D4C2C4900836477 /* SmartPathClient.xcdatamodel */;
+			path = SmartPathClient.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 366917A31D4C2C4900836477 /* Project object */;
+}
