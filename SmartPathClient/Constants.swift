@@ -27,3 +27,6 @@ let LightRadius: CLLocationDistance = 10.0
 
 let LightStrokeColor: UIColor = UIColor.yellowColor()
 let LightFillColor: UIColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
+
+let TreeStrokeColor: UIColor = UIColor.greenColor()
+let TreeFillColor: UIColor = UIColor.greenColor().colorWithAlphaComponent(0.5)

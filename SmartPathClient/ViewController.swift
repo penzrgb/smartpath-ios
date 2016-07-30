@@ -88,6 +88,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         // TODO: Make request to the backend server to get the map data for this bounding box.
         
+        // TODO: Determine mode the user is in. Is the user in the Light mode or Trees mode?
+        
         for lightSource in ArrayOfLightPoints {
             self.generateLight(CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: LightRadius)
         }
@@ -124,9 +126,17 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     //Private methods
     
     private func generateLight(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        self.placeCircleOnMap(coordinate, radius: radius, strokeColor: LightStrokeColor, fillColor: LightFillColor)
+    }
+    
+    private func generateTree(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        self.placeCircleOnMap(coordinate, radius: radius, strokeColor: TreeStrokeColor, fillColor: TreeFillColor)
+    }
+    
+    private func placeCircleOnMap(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, strokeColor: UIColor, fillColor: UIColor) {
         let circle: GMSCircle = GMSCircle(position: coordinate, radius: radius)
-        circle.strokeColor = LightStrokeColor
-        circle.fillColor = LightFillColor
+        circle.strokeColor = strokeColor
+        circle.fillColor = fillColor
         circle.map = self.mapView
         self.circles.append(circle)
     }
