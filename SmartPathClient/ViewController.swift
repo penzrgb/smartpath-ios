@@ -17,6 +17,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     @IBOutlet private weak var mapContainer: UIView!
     @IBOutlet private weak var locateMeButton: UIButton!
+    @IBOutlet private weak var summaryLabel: UILabel!
     @IBOutlet private var searchController: LocationSearchController!
     
     private var mapView: GMSMapView!
@@ -41,7 +42,9 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.searchController.delegate = self
+        self.summaryLabel.text = nil
         
         // Create default camera position
         let camera = GMSCameraPosition.cameraWithLatitude(DefaultMapCenter.latitude,
@@ -110,6 +113,10 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         }
     }
     
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        self.searchController.searchField.resignFirstResponder()
+    }
+    
     
     //MARK: CLLocationManagerDelegate
     
@@ -129,6 +136,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         }
     }
     
+    
     //MARK: LocationSearchControllerDelegate
     
     func searchController(controller: LocationSearchController,
@@ -146,6 +154,26 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             if let place = place {
                 NSLog("Place selected: \(place.coordinate) \(place.name)")
             }
+        }
+    }
+    
+    func searchControllerDidActivate(controller: LocationSearchController) {
+        self.summaryLabel.alpha = 0
+        self.summaryLabel.text = "It's dark out, so we'll take you on the path with the most street lighting.\n\nWhere would you like to walk to?\n"
+        
+        UIView.animateWithDuration(0.5, animations: { 
+            self.view.layoutIfNeeded()
+        }) { _ in
+            UIView.animateWithDuration(0.1, animations: { 
+                self.summaryLabel.alpha = 1.0
+            })
+        }
+    }
+    
+    func searchControllerDidDeactivate(controller: LocationSearchController) {
+        self.summaryLabel.text = nil
+        UIView.animateWithDuration(0.5) {
+            self.view.layoutIfNeeded()
         }
     }
 

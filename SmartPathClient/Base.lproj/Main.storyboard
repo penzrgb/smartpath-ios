@@ -41,10 +41,10 @@
                                 </connections>
                             </button>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6P-TV-Nw6" userLabel="Search overlay">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="208"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uk-K9-PDz">
-                                        <rect key="frame" x="30" y="30" width="540" height="45"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0uk-K9-PDz">
+                                        <rect key="frame" x="30" y="133" width="540" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="RxI-4k-9ej"/>
@@ -55,12 +55,25 @@
                                             <outlet property="delegate" destination="SLs-j7-mPy" id="mWa-jU-dFK"/>
                                         </connections>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7c-GM-9Rx">
+                                        <rect key="frame" x="60" y="30" width="480" height="102"/>
+                                        <string key="text">It's 30° and sunny, so we'll take you on the path with the most shade.
+
+Where would you like to walk to?
+</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="0uk-K9-PDz" firstAttribute="top" secondItem="B6P-TV-Nw6" secondAttribute="top" constant="30" id="0lo-ql-nJM"/>
                                     <constraint firstAttribute="trailing" secondItem="0uk-K9-PDz" secondAttribute="trailing" constant="30" id="4QF-YO-uL1"/>
+                                    <constraint firstItem="a7c-GM-9Rx" firstAttribute="leading" secondItem="B6P-TV-Nw6" secondAttribute="leading" constant="60" id="9Ec-Y4-Jdt"/>
+                                    <constraint firstItem="0uk-K9-PDz" firstAttribute="top" secondItem="a7c-GM-9Rx" secondAttribute="bottom" constant="1" id="KMt-Xz-SnZ"/>
+                                    <constraint firstItem="a7c-GM-9Rx" firstAttribute="top" secondItem="B6P-TV-Nw6" secondAttribute="top" constant="30" id="dhY-vW-K3v"/>
                                     <constraint firstItem="0uk-K9-PDz" firstAttribute="leading" secondItem="B6P-TV-Nw6" secondAttribute="leading" constant="30" id="gln-H7-THU"/>
+                                    <constraint firstAttribute="trailing" secondItem="a7c-GM-9Rx" secondAttribute="trailing" constant="60" id="uT9-xs-8iu"/>
                                     <constraint firstAttribute="bottom" secondItem="0uk-K9-PDz" secondAttribute="bottom" constant="30" id="w1z-3m-4yq"/>
                                 </constraints>
                             </view>
@@ -82,6 +95,7 @@
                         <outlet property="locateMeButton" destination="dXM-RW-fg5" id="Bdr-pg-xiT"/>
                         <outlet property="mapContainer" destination="KV0-3O-dqp" id="TGS-uo-dsi"/>
                         <outlet property="searchController" destination="SLs-j7-mPy" id="N9K-lX-ujZ"/>
+                        <outlet property="summaryLabel" destination="a7c-GM-9Rx" id="QMf-bn-GOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -135,11 +135,13 @@ class LocationSearchController: NSObject, UITextFieldDelegate, UITableViewDataSo
             self.showTableView()
             self.search(textField.text!)
         }
+        self.delegate?.searchControllerDidActivate?(self)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.hideTableView()
         self.fetcher = nil
+        self.delegate?.searchControllerDidDeactivate?(self)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -182,4 +184,8 @@ class LocationSearchController: NSObject, UITextFieldDelegate, UITableViewDataSo
 
 @objc protocol LocationSearchControllerDelegate: AnyObject {
     func searchController(controller: LocationSearchController, didSelectResult result: GMSAutocompletePrediction)
+    
+    optional func searchControllerDidActivate(controller: LocationSearchController)
+    
+    optional func searchControllerDidDeactivate(controller: LocationSearchController)
 }
