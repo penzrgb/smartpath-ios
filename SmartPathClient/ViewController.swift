@@ -10,12 +10,29 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+    
+    private let DefaultZoomLevel: Float = 18.0
+    private let DefaultMapCenter = CLLocationCoordinate2D(latitude: -38.149918, longitude: 144.361719)
+    
+    @IBOutlet private weak var mapContainer: UIView!
+    @IBOutlet private weak var locateMeButton: UIButton!
     
     private var mapView: GMSMapView!
     
     private var isVisible: Bool = false
     private var hasLocation: Bool = false
+    
+    private var userTrackingEnabled: Bool = false {
+        didSet {
+            self.locateMeButton.selected = userTrackingEnabled
+            if userTrackingEnabled {
+                self.locationManager.startUpdatingLocation()
+            } else {
+                self.locationManager.stopUpdatingLocation()
+            }
+        }
+    }
     
     private lazy var locationManager = CLLocationManager()
     
@@ -24,25 +41,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.cameraWithLatitude(-38.197111, longitude: 144.70274, zoom: 6.0)
-        self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-        self.mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        self.mapView.frame = self.view.bounds
-        self.view.addSubview(mapView)
+        // Create default camera position
+        let camera = GMSCameraPosition.cameraWithLatitude(DefaultMapCenter.latitude,
+            longitude: DefaultMapCenter.longitude, zoom: 10.0)
         
+        // Create the map view
+        self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
+        self.mapView.settings.rotateGestures = false
+        self.mapView.settings.tiltGestures = false
         self.mapView.delegate = self
+        self.mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.mapView.frame = self.mapContainer.bounds
+        self.mapContainer.addSubview(mapView)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.isVisible = true
         
+        self.locationManager.delegate = self
         if (CLLocationManager.authorizationStatus() == .NotDetermined) {
-            self.locationManager.delegate = self
             self.locationManager.requestWhenInUseAuthorization()
         } else {
+            self.userTrackingEnabled = true
             self.mapView.myLocationEnabled = true
         }
     }
@@ -73,11 +94,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     
+    //MARK: GMSMapViewDelegate
+    
+    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+        if gesture {
+            self.userTrackingEnabled = false
+        }
+    }
+    
+    
     //MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
+            self.userTrackingEnabled = true
             self.mapView.myLocationEnabled = true
+        }
+    }
+     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if self.userTrackingEnabled || !self.hasLocation {
+            self.mapView.animateToLocation(locations[0].coordinate)
+            if !self.hasLocation {
+                self.hasLocation = true
+                self.mapView.animateToZoom(DefaultZoomLevel)
+            }
         }
     }
     
@@ -100,6 +140,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         return (northEast, southWest)
     }
-    
-}
 
+    //MARK: Actions
+    
+    @IBAction func toggleUserTracking(sender: AnyObject) {
+        if self.userTrackingEnabled {
+            self.userTrackingEnabled = false
+        } else if (!self.handleLocationDenied()) {
+            self.userTrackingEnabled = true
+        }
+    }
+}

@@ -10,11 +10,12 @@
 		085D2C972AF201E57153992F /* Pods_SmartPathClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */; };
 		219D439E1D4C324700C39EBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D439C1D4C324700C39EBB /* Constants.swift */; };
 		219D439F1D4C324700C39EBB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D439D1D4C324700C39EBB /* Global.swift */; };
+		219D43A41D4C3E2C00C39EBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219D43A11D4C3E2C00C39EBB /* Assets.xcassets */; };
+		219D43A51D4C3E2C00C39EBB /* BlackTie-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 219D43A31D4C3E2C00C39EBB /* BlackTie-Light.otf */; };
 		366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917AE1D4C2C4900836477 /* AppDelegate.swift */; };
 		366917B11D4C2C4900836477 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917B01D4C2C4900836477 /* ViewController.swift */; };
 		366917B41D4C2C4900836477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917B21D4C2C4900836477 /* Main.storyboard */; };
 		366917B71D4C2C4900836477 /* SmartPathClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */; };
-		366917B91D4C2C4A00836477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366917B81D4C2C4A00836477 /* Assets.xcassets */; };
 		366917BC1D4C2C4A00836477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */; };
 		366917C71D4C2C4A00836477 /* SmartPathClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917C61D4C2C4A00836477 /* SmartPathClientTests.swift */; };
 		366917D21D4C2C4A00836477 /* SmartPathClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */; };
@@ -43,13 +44,14 @@
 		1C60DD681B14A6D651907210 /* Pods-SmartPathClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientUITests/Pods-SmartPathClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		219D439C1D4C324700C39EBB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		219D439D1D4C324700C39EBB /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		219D43A11D4C3E2C00C39EBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		219D43A31D4C3E2C00C39EBB /* BlackTie-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackTie-Light.otf"; sourceTree = "<group>"; };
 		314FF205EC9BA3822FCBFB51 /* Pods-SmartPathClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		366917AB1D4C2C4900836477 /* SmartPathClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPathClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366917AE1D4C2C4900836477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		366917B01D4C2C4900836477 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		366917B31D4C2C4900836477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		366917B61D4C2C4900836477 /* SmartPathClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartPathClient.xcdatamodel; sourceTree = "<group>"; };
-		366917B81D4C2C4A00836477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		366917BB1D4C2C4A00836477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		366917BD1D4C2C4A00836477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		366917C21D4C2C4A00836477 /* SmartPathClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPathClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		219D43A01D4C3E2C00C39EBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				219D43A11D4C3E2C00C39EBB /* Assets.xcassets */,
+				219D43A21D4C3E2C00C39EBB /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		219D43A21D4C3E2C00C39EBB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				219D43A31D4C3E2C00C39EBB /* BlackTie-Light.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		366917A21D4C2C4900836477 = {
 			isa = PBXGroup;
 			children = (
@@ -135,9 +154,9 @@
 				219D439D1D4C324700C39EBB /* Global.swift */,
 				366917B01D4C2C4900836477 /* ViewController.swift */,
 				366917B21D4C2C4900836477 /* Main.storyboard */,
-				366917B81D4C2C4A00836477 /* Assets.xcassets */,
 				366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */,
 				366917BD1D4C2C4A00836477 /* Info.plist */,
+				219D43A01D4C3E2C00C39EBB /* Resources */,
 				366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */,
 			);
 			path = SmartPathClient;
@@ -287,7 +306,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				366917BC1D4C2C4A00836477 /* LaunchScreen.storyboard in Resources */,
-				366917B91D4C2C4A00836477 /* Assets.xcassets in Resources */,
+				219D43A51D4C3E2C00C39EBB /* BlackTie-Light.otf in Resources */,
+				219D43A41D4C3E2C00C39EBB /* Assets.xcassets in Resources */,
 				366917B41D4C2C4900836477 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
