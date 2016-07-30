@@ -12,6 +12,9 @@ import CoreLocation
 
 class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
+    private let DefaultZoomLevel: Float = 18.0
+    private let DefaultMapCenter = CLLocationCoordinate2D(latitude: -38.149918, longitude: 144.361719)
+    
     @IBOutlet private weak var mapContainer: UIView!
     @IBOutlet private weak var locateMeButton: UIButton!
     
@@ -36,9 +39,9 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6.0)
+        // Create default camera position
+        let camera = GMSCameraPosition.cameraWithLatitude(DefaultMapCenter.latitude,
+            longitude: DefaultMapCenter.longitude, zoom: 10.0)
         
         // Create the map view
         self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
@@ -49,7 +52,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.mapView.frame = self.mapContainer.bounds
         self.mapContainer.addSubview(mapView)
         
-        // Creates a marker in the center of the map.
+        // Create a marker
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
         marker.title = "Sydney"
@@ -65,6 +68,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         if (CLLocationManager.authorizationStatus() == .NotDetermined) {
             self.locationManager.requestWhenInUseAuthorization()
         } else {
+            self.userTrackingEnabled = true
             self.mapView.myLocationEnabled = true
         }
     }
@@ -88,13 +92,18 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
+            self.userTrackingEnabled = true
             self.mapView.myLocationEnabled = true
         }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if self.userTrackingEnabled {
+        if self.userTrackingEnabled || !self.hasLocation {
             self.mapView.animateToLocation(locations[0].coordinate)
+            if !self.hasLocation {
+                self.hasLocation = true
+                self.mapView.animateToZoom(DefaultZoomLevel)
+            }
         }
     }
     
