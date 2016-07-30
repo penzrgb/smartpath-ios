@@ -63,6 +63,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         // Clean up any circle references that don't have a map anymore.
         self.circles = self.circles.filter { $0.map == nil }
         
+        let mapBounds = self.getVisibleMapBoundaries()
+        
+        // TODO: Make request to the backend server to get the map data for this bounding box.
+        
         for lightSource in ArrayOfLightPoints {
             self.generateLight(CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: LightRadius)
         }
@@ -85,6 +89,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         circle.fillColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
         circle.map = self.mapView
         self.circles.append(circle)
+    }
+    
+    private func getVisibleMapBoundaries() -> (CLLocationCoordinate2D, CLLocationCoordinate2D) {
+        let visibleRegion: GMSVisibleRegion = self.mapView.projection.visibleRegion()
+        let bounds: GMSCoordinateBounds = GMSCoordinateBounds(region: visibleRegion)
+        // we've got what we want, but here are NE and SW points
+        let northEast: CLLocationCoordinate2D = bounds.northEast
+        let southWest: CLLocationCoordinate2D = bounds.southWest
+        
+        return (northEast, southWest)
     }
     
 }
