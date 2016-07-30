@@ -38,5 +38,9 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app needs your location to plan your walking route.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BlackTie-Light.otf</string>
+	</array>
 </dict>
 </plist>
