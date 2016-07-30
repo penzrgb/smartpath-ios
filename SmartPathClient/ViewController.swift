@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     private var mapView: GMSMapView!
     
@@ -18,6 +18,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     private var hasLocation: Bool = false
     
     private lazy var locationManager = CLLocationManager()
+    
+    private var circles: [GMSCircle] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.mapView.frame = self.view.bounds
         self.view.addSubview(mapView)
         
-        for lightSource in ArrayOfLightPoints {
-            let circle: GMSCircle = GMSCircle(position: CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: 10.0)
-            circle.strokeColor = UIColor.yellowColor()
-            circle.fillColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
-            circle.map = self.mapView
-        }
+        self.mapView.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,6 +52,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.isVisible = false
     }
     
+    //MARK: GMSMapViewDelegate
+    
+    func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
+        // Clear previously generated circles
+        for circle in self.circles {
+            circle.map = nil
+        }
+        
+        // Clean up any circle references that don't have a map anymore.
+        self.circles = self.circles.filter { $0.map == nil }
+        
+        for lightSource in ArrayOfLightPoints {
+            self.generateLight(CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: LightRadius)
+        }
+    }
+    
     
     //MARK: CLLocationManagerDelegate
     
@@ -62,6 +75,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
             self.mapView.myLocationEnabled = true
         }
+    }
+    
+    //Private methods
+    
+    private func generateLight(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        let circle: GMSCircle = GMSCircle(position: coordinate, radius: radius)
+        circle.strokeColor = UIColor.yellowColor()
+        circle.fillColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
+        circle.map = self.mapView
+        self.circles.append(circle)
     }
     
 }

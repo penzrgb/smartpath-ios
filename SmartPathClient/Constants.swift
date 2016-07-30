@@ -21,3 +21,5 @@ let ArrayOfLightPoints: [(lat: CLLocationDegrees, long: CLLocationDegrees, type:
     (-38.196549, 144.70419, .CCMercuryVapor),
     (-38.146425, 144.70553, .HPSodium)
 ]
+
+let LightRadius: CLLocationDistance = 10.0
