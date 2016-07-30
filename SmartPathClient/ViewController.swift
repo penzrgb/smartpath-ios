@@ -10,13 +10,14 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, LocationSearchControllerDelegate {
     
     private let DefaultZoomLevel: Float = 18.0
     private let DefaultMapCenter = CLLocationCoordinate2D(latitude: -38.149918, longitude: 144.361719)
     
     @IBOutlet private weak var mapContainer: UIView!
     @IBOutlet private weak var locateMeButton: UIButton!
+    @IBOutlet private var searchController: LocationSearchController!
     
     private var mapView: GMSMapView!
     
@@ -38,6 +39,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchController.delegate = self
         
         // Create default camera position
         let camera = GMSCameraPosition.cameraWithLatitude(DefaultMapCenter.latitude,
@@ -78,6 +80,10 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.isVisible = false
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     
     //MARK: GMSMapViewDelegate
     
@@ -85,6 +91,10 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         if gesture {
             self.userTrackingEnabled = false
         }
+    }
+    
+    func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
+        self.searchController.searchRegion = GMSCoordinateBounds(region: self.mapView.projection.visibleRegion())
     }
     
     
@@ -103,6 +113,27 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             if !self.hasLocation {
                 self.hasLocation = true
                 self.mapView.animateToZoom(DefaultZoomLevel)
+            }
+        }
+    }
+    
+    
+    //MARK: LocationSearchControllerDelegate
+    
+    func searchController(controller: LocationSearchController,
+                          didSelectResult result: GMSAutocompletePrediction)
+    {
+        guard let placeID = result.placeID else {
+            return
+        }
+        
+        GMSPlacesClient.sharedClient().lookUpPlaceID(placeID) { place, error in
+            if let error = error {
+                NSLog("\(self.dynamicType): Unable to look up place ID \(placeID): \(error))")
+                return
+            }
+            if let place = place {
+                NSLog("Place selected: \(place.coordinate) \(place.name)")
             }
         }
     }

@@ -40,23 +40,56 @@
                                     <action selector="toggleUserTracking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CvR-yv-FuU"/>
                                 </connections>
                             </button>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6P-TV-Nw6" userLabel="Search overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uk-K9-PDz">
+                                        <rect key="frame" x="30" y="30" width="540" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="RxI-4k-9ej"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="SLs-j7-mPy" id="mWa-jU-dFK"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="0uk-K9-PDz" firstAttribute="top" secondItem="B6P-TV-Nw6" secondAttribute="top" constant="30" id="0lo-ql-nJM"/>
+                                    <constraint firstAttribute="trailing" secondItem="0uk-K9-PDz" secondAttribute="trailing" constant="30" id="4QF-YO-uL1"/>
+                                    <constraint firstItem="0uk-K9-PDz" firstAttribute="leading" secondItem="B6P-TV-Nw6" secondAttribute="leading" constant="30" id="gln-H7-THU"/>
+                                    <constraint firstAttribute="bottom" secondItem="0uk-K9-PDz" secondAttribute="bottom" constant="30" id="w1z-3m-4yq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dXM-RW-fg5" secondAttribute="trailing" constant="20" id="4bC-OS-jl1"/>
                             <constraint firstItem="KV0-3O-dqp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="53G-iO-Anu"/>
+                            <constraint firstAttribute="trailing" secondItem="B6P-TV-Nw6" secondAttribute="trailing" id="Ryc-za-sld"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dXM-RW-fg5" secondAttribute="bottom" constant="20" id="TMA-m3-ZzZ"/>
                             <constraint firstAttribute="trailing" secondItem="KV0-3O-dqp" secondAttribute="trailing" id="UMm-dR-6iZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KV0-3O-dqp" secondAttribute="bottom" id="XWn-ZK-gQD"/>
+                            <constraint firstItem="B6P-TV-Nw6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="e76-yI-L5j"/>
+                            <constraint firstItem="B6P-TV-Nw6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jSr-x1-kgS"/>
                             <constraint firstItem="KV0-3O-dqp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xLY-60-HqB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="locateMeButton" destination="dXM-RW-fg5" id="Bdr-pg-xiT"/>
                         <outlet property="mapContainer" destination="KV0-3O-dqp" id="TGS-uo-dsi"/>
+                        <outlet property="searchController" destination="SLs-j7-mPy" id="N9K-lX-ujZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="SLs-j7-mPy" customClass="LocationSearchController" customModule="SmartPathClient" customModuleProvider="target">
+                    <connections>
+                        <outlet property="searchField" destination="0uk-K9-PDz" id="Vgc-gY-3hb"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="399" y="415"/>
         </scene>
