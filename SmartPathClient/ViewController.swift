@@ -125,8 +125,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     private func generateLight(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         let circle: GMSCircle = GMSCircle(position: coordinate, radius: radius)
-        circle.strokeColor = UIColor.yellowColor()
-        circle.fillColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
+        circle.strokeColor = LightStrokeColor
+        circle.fillColor = LightFillColor
         circle.map = self.mapView
         self.circles.append(circle)
     }

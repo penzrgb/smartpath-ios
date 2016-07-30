@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 enum LightType {
     case CCMercuryVapor
@@ -23,3 +24,6 @@ let ArrayOfLightPoints: [(lat: CLLocationDegrees, long: CLLocationDegrees, type:
 ]
 
 let LightRadius: CLLocationDistance = 10.0
+
+let LightStrokeColor: UIColor = UIColor.yellowColor()
+let LightFillColor: UIColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
