@@ -24,6 +24,7 @@
 		16BF96723023981B9F9BFA91379EBA43 /* Pods-SmartPathClientTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SmartPathClientTests-frameworks.sh"; sourceTree = "<group>"; };
 		1C71D31CC5E2D9DA7461081530BFCEF3 /* Pods-SmartPathClient-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SmartPathClient-frameworks.sh"; sourceTree = "<group>"; };
 		1FC4980E7DF705486A5BD4D9845CF50F /* Pods-SmartPathClientUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SmartPathClientUITests.modulemap"; sourceTree = "<group>"; };
+		213B1724C62BE8BC65F92A9BC1A24B5B /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
 		225CBC50CB720414E9A323F231364363 /* Pods-SmartPathClientUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SmartPathClientUITests-frameworks.sh"; sourceTree = "<group>"; };
 		2E4C1FED6B630E146F0EA59CCD5D437C /* Pods-SmartPathClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartPathClient.debug.xcconfig"; sourceTree = "<group>"; };
 		2FEF9BAC2147DBE727363053AF41FE7B /* Pods-SmartPathClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartPathClientUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		91DB49D3FA8504E565AE6ED6113ACA7A /* Pods-SmartPathClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartPathClient.release.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9855854F6A6FB95BFD1C8159A99AD167 /* Pods-SmartPathClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartPathClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E17161130B27DB46F01569D1C6C5443 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		A85661EABEE35A3B79876F599DBEC7DB /* Pods-SmartPathClient-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartPathClient-acknowledgements.plist"; sourceTree = "<group>"; };
 		AB73B3BF0D416BBCEE51ED96DC47551A /* Pods_SmartPathClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPathClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0452844C7269E0F9E6FDE5769CC251F /* Pods-SmartPathClientTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SmartPathClientTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -120,6 +122,22 @@
 			path = "Target Support Files/Pods-SmartPathClientUITests";
 			sourceTree = "<group>";
 		};
+		552C04C99B9EC7FD6897DEAA23CA97B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				213B1724C62BE8BC65F92A9BC1A24B5B /* GoogleMaps.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAA2E410E8C08C05E23E73307973F577 /* GoogleMaps */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6D87E691697A09D1DD3B41B3C109888B /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +153,7 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */,
 				1369F01DE0C671C773F5487B3B21E8BB /* Products */,
 				6D87E691697A09D1DD3B41B3C109888B /* Targets Support Files */,
 			);
@@ -156,6 +175,23 @@
 			);
 			name = "Pods-SmartPathClient";
 			path = "Target Support Files/Pods-SmartPathClient";
+			sourceTree = "<group>";
+		};
+		AAA2E410E8C08C05E23E73307973F577 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				552C04C99B9EC7FD6897DEAA23CA97B2 /* Frameworks */,
+				BA6CC55F7C3DC98EA32DB381E76D8A4B /* Resources */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		BA6CC55F7C3DC98EA32DB381E76D8A4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E17161130B27DB46F01569D1C6C5443 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
