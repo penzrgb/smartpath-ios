@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		085D2C972AF201E57153992F /* Pods_SmartPathClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */; };
+		219D439E1D4C324700C39EBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D439C1D4C324700C39EBB /* Constants.swift */; };
+		219D439F1D4C324700C39EBB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D439D1D4C324700C39EBB /* Global.swift */; };
 		366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917AE1D4C2C4900836477 /* AppDelegate.swift */; };
 		366917B11D4C2C4900836477 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917B01D4C2C4900836477 /* ViewController.swift */; };
 		366917B41D4C2C4900836477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917B21D4C2C4900836477 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		1C60DD681B14A6D651907210 /* Pods-SmartPathClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientUITests/Pods-SmartPathClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		219D439C1D4C324700C39EBB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		219D439D1D4C324700C39EBB /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		314FF205EC9BA3822FCBFB51 /* Pods-SmartPathClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		366917AB1D4C2C4900836477 /* SmartPathClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPathClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366917AE1D4C2C4900836477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				366917AE1D4C2C4900836477 /* AppDelegate.swift */,
+				219D439C1D4C324700C39EBB /* Constants.swift */,
+				219D439D1D4C324700C39EBB /* Global.swift */,
 				366917B01D4C2C4900836477 /* ViewController.swift */,
 				366917B21D4C2C4900836477 /* Main.storyboard */,
 				366917B81D4C2C4A00836477 /* Assets.xcassets */,
@@ -433,6 +439,8 @@
 				366917B71D4C2C4900836477 /* SmartPathClient.xcdatamodeld in Sources */,
 				366917B11D4C2C4900836477 /* ViewController.swift in Sources */,
 				366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */,
+				219D439F1D4C324700C39EBB /* Global.swift in Sources */,
+				219D439E1D4C324700C39EBB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +587,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -591,6 +600,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GovHack.SmartPathClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
