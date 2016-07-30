@@ -24,27 +24,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6.0)
+        let camera = GMSCameraPosition.cameraWithLatitude(-38.197111, longitude: 144.70274, zoom: 6.0)
         self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
         self.mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.mapView.frame = self.view.bounds
         self.view.addSubview(mapView)
         
-        let path = GMSMutablePath()
-        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.45, longitude: -122.0))
-        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.45, longitude: -122.2))
-        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.2))
-        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.0))
-        
-        let rectangle = GMSPolyline(path: path)
-        rectangle.map = self.mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
+        for lightSource in ArrayOfLightPoints {
+            let circle: GMSCircle = GMSCircle(position: CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: 10.0)
+            circle.strokeColor = UIColor.yellowColor()
+            circle.fillColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
+            circle.map = self.mapView
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
