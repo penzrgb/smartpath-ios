@@ -37,6 +37,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     private lazy var locationManager = CLLocationManager()
     
+    private var circles: [GMSCircle] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchController.delegate = self
@@ -53,13 +55,6 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.mapView.frame = self.mapContainer.bounds
         self.mapContainer.addSubview(mapView)
-        
-        // Create a marker
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -79,22 +74,40 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         super.viewDidDisappear(animated)
         self.isVisible = false
     }
-    
+
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
-    
+
     //MARK: GMSMapViewDelegate
+    
+    func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
+        self.searchController.searchRegion = GMSCoordinateBounds(region: self.mapView.projection.visibleRegion())
+        
+        // Clear previously generated circles
+        for circle in self.circles {
+            circle.map = nil
+        }
+        
+        // Clean up any circle references that don't have a map anymore.
+        self.circles = self.circles.filter { $0.map == nil }
+        
+        let mapBounds = self.getVisibleMapBoundaries()
+        
+        // TODO: Make request to the backend server to get the map data for this bounding box.
+        
+        // TODO: Determine mode the user is in. Is the user in the Light mode or Trees mode?
+        
+        for lightSource in ArrayOfLightPoints {
+            self.generateLight(CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: LightRadius)
+        }
+    }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
         if gesture {
             self.userTrackingEnabled = false
         }
-    }
-    
-    func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
-        self.searchController.searchRegion = GMSCoordinateBounds(region: self.mapView.projection.visibleRegion())
     }
     
     
@@ -106,8 +119,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             self.mapView.myLocationEnabled = true
         }
     }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if self.userTrackingEnabled || !self.hasLocation {
             self.mapView.animateToLocation(locations[0].coordinate)
             if !self.hasLocation {
@@ -116,7 +128,6 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             }
         }
     }
-    
     
     //MARK: LocationSearchControllerDelegate
     
@@ -137,8 +148,36 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             }
         }
     }
+
     
+    //Private methods
     
+    private func generateLight(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        self.placeCircleOnMap(coordinate, radius: radius, strokeColor: LightStrokeColor, fillColor: LightFillColor)
+    }
+    
+    private func generateTree(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        self.placeCircleOnMap(coordinate, radius: radius, strokeColor: TreeStrokeColor, fillColor: TreeFillColor)
+    }
+    
+    private func placeCircleOnMap(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, strokeColor: UIColor, fillColor: UIColor) {
+        let circle: GMSCircle = GMSCircle(position: coordinate, radius: radius)
+        circle.strokeColor = strokeColor
+        circle.fillColor = fillColor
+        circle.map = self.mapView
+        self.circles.append(circle)
+    }
+    
+    private func getVisibleMapBoundaries() -> (CLLocationCoordinate2D, CLLocationCoordinate2D) {
+        let visibleRegion: GMSVisibleRegion = self.mapView.projection.visibleRegion()
+        let bounds: GMSCoordinateBounds = GMSCoordinateBounds(region: visibleRegion)
+        // we've got what we want, but here are NE and SW points
+        let northEast: CLLocationCoordinate2D = bounds.northEast
+        let southWest: CLLocationCoordinate2D = bounds.southWest
+        
+        return (northEast, southWest)
+    }
+
     //MARK: Actions
     
     @IBAction func toggleUserTracking(sender: AnyObject) {
@@ -148,6 +187,4 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             self.userTrackingEnabled = true
         }
     }
-    
 }
-
