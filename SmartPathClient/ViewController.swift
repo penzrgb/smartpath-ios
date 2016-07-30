@@ -30,6 +30,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.mapView.frame = self.view.bounds
         self.view.addSubview(mapView)
         
+        let path = GMSMutablePath()
+        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.45, longitude: -122.0))
+        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.45, longitude: -122.2))
+        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.2))
+        path.addCoordinate(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.0))
+        
+        let rectangle = GMSPolyline(path: path)
+        rectangle.map = self.mapView
+        
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
