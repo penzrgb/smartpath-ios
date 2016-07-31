@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GoogleMaps
+import GooglePlaces
 
 class LocationSearchController: NSObject, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, GMSAutocompleteFetcherDelegate {
     
