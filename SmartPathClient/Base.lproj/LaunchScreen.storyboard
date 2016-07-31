@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="SmartPath_logo" translatesAutoresizingMaskIntoConstraints="NO" id="j97-XJ-rAQ">
+                                <rect key="frame" x="140" y="257" width="320" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="j97-XJ-rAQ" secondAttribute="height" multiplier="455:121" id="PdJ-GU-bwG"/>
+                                    <constraint firstAttribute="width" constant="320" id="g2W-Id-Yt0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.70980392156862748" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="j97-XJ-rAQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VWI-rW-8kw"/>
+                            <constraint firstItem="j97-XJ-rAQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lSz-M0-YMc"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SmartPath_logo" width="1365" height="363"/>
+    </resources>
 </document>
