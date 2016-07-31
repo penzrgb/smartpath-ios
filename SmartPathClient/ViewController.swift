@@ -180,7 +180,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     func getCurrentHour() -> NSInteger {
         let currentDate = NSDate() // You can input the custom as well
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate:  currentDate)
+        let components = calendar.components([.Hour], fromDate:  currentDate)
         let currentHour = components.hour // You can play around with the ""components""
         
         return currentHour
@@ -188,7 +188,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     func getSunsetHour(dateObject: NSDate) -> NSInteger {
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate:  dateObject)
+        let components = calendar.components([.Hour], fromDate:  dateObject)
         let currentHour = components.hour // You can play around with the ""components""
         
         return currentHour
