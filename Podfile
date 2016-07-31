@@ -5,6 +5,7 @@ target 'SmartPathClient' do
   use_frameworks!
 
   pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   # Pods for SmartPathClient
 
