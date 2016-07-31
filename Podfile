@@ -7,6 +7,7 @@ target 'SmartPathClient' do
   pod 'GoogleMaps'
   pod 'Alamofire', '~> 3.4'
   pod 'GooglePlaces'
+  pod 'Solar'
 
   # Pods for SmartPathClient
 

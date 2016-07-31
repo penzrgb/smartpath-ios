@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import Solar
 
 class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, LocationSearchControllerDelegate, SmartPathAPIManagerDelegate {
     
@@ -18,6 +19,9 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     private let ZoomEdgeInsets = UIEdgeInsetsMake(140, 30, 30, 30)
     
     private var debuffMapChange: Bool = false
+    
+    // If true, render trees, if false render lights.
+    private var renderTrees: Bool = true
     
     @IBOutlet private weak var mapContainer: UIView!
     @IBOutlet private weak var locateMeButton: UIButton!
@@ -155,10 +159,30 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             self.api!.getTreesInBounds(mapBounds.0.latitude, longTopLeft: mapBounds.0.longitude, latBottomRight: mapBounds.1.latitude, longBottomRight: mapBounds.1.longitude)
         }
         
-        // TODO: Make request to the backend server to get the map data for this bounding box.
+        let solar = Solar(withTimeZone: NSTimeZone.localTimeZone(), latitude:  mapBounds.0.latitude , longitude: mapBounds.0.longitude)
         
-        // TODO: Determine mode the user is in. Is the user in the Light mode or Trees mode?
+        let sunrise = solar?.sunrise
+        if self.getCurrentHour() > self.getSunsetHour(sunrise!) {
+            // Render the lights instead of the trees.
+            self.renderTrees = false
+        }
+    }
+    
+    func getCurrentHour() -> NSInteger {
+        let currentDate = NSDate() // You can input the custom as well
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate:  currentDate)
+        let currentHour = components.hour // You can play around with the ""components""
         
+        return currentHour
+    }
+    
+    func getSunsetHour(dateObject: NSDate) -> NSInteger {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate:  dateObject)
+        let currentHour = components.hour // You can play around with the ""components""
+        
+        return currentHour
     }
     
     func mapViewSnapshotReady(mapView: GMSMapView) {
