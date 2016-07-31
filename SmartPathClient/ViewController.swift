@@ -11,16 +11,20 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
-class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, LocationSearchControllerDelegate {
+class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, LocationSearchControllerDelegate, SmartPathAPIManagerDelegate {
     
     private let DefaultZoomLevel: Float = 18.0
     private let DefaultMapCenter = CLLocationCoordinate2D(latitude: -38.149918, longitude: 144.361719)
     private let ZoomEdgeInsets = UIEdgeInsetsMake(140, 30, 30, 30)
     
+    private var debuffMapChange: Bool = false
+    
     @IBOutlet private weak var mapContainer: UIView!
     @IBOutlet private weak var locateMeButton: UIButton!
     @IBOutlet private weak var summaryLabel: UILabel!
     @IBOutlet private var searchController: LocationSearchController!
+    
+    private var api: SmartPathAPIManager?
     
     private var mapView: GMSMapView!
     private var lightSurface: LightSurface!
@@ -61,6 +65,9 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.searchController.delegate = self
         self.summaryLabel.text = nil
         
+        self.api = SmartPathAPIManager()
+        self.api?.delegate = self
+        
         // Create default camera position
         let camera = GMSCameraPosition.cameraWithLatitude(DefaultMapCenter.latitude,
             longitude: DefaultMapCenter.longitude, zoom: 10.0)
@@ -76,7 +83,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         // Create the light surface
         self.lightSurface = LightSurface(frame: self.mapContainer.bounds)
-        self.lightSurface.alpha = 0.7
+        //self.lightSurface.alpha = 0.7
+        self.lightSurface.alpha = 0.0
         self.lightSurface.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.lightSurface.frame = self.mapContainer.bounds
         self.mapContainer.addSubview(self.lightSurface)
@@ -104,6 +112,27 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         return .LightContent
     }
     
+    //MARK: SmartPathAPIManagerDelegate
+    
+    func TreesUpdated(trees: NSArray) {
+        if (trees.count == 0) {
+            return
+        }
+        
+        for tree in trees {
+            self.generateTree(CLLocationCoordinate2DMake(tree["latitude"]!!.doubleValue, tree["longitude"]!!.doubleValue), radius: TreeRadius)
+        }
+    }
+    
+    func LightsUpdated(lights: NSArray) {
+        if (lights.count == 0) {
+            return
+        }
+        
+        for light in lights {
+            self.generateTree(CLLocationCoordinate2DMake(light["latitude"]!!.doubleValue, light["longitude"]!!.doubleValue), radius: LightRadius)
+        }
+    }
 
     //MARK: GMSMapViewDelegate
     
@@ -119,6 +148,12 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.circles = self.circles.filter { $0.map == nil }
         
         let mapBounds = self.getVisibleMapBoundaries()
+        
+        if !self.debuffMapChange {
+            self.debuffMapChange = true
+            let timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(ViewController.debuffTimer), userInfo: nil, repeats: true)
+            self.api!.getTreesInBounds(mapBounds.0.latitude, longTopLeft: mapBounds.0.longitude, latBottomRight: mapBounds.1.latitude, longBottomRight: mapBounds.1.longitude)
+        }
         
         // TODO: Make request to the backend server to get the map data for this bounding box.
         
@@ -140,6 +175,10 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             }
             
         }
+    }
+    
+    func debuffTimer() {
+        self.debuffMapChange = false
     }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {

@@ -22,6 +22,11 @@ struct StreetLight {
     var type: LightType
 }
 
+let ApiPath = "http://54.206.63.152:3000"
+
+let LightRadius: CLLocationDistance = 10.0
+let TreeRadius: CLLocationDistance = 10.0
+
 let ExampleStreetLights: [StreetLight] = [
     StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.197111, longitude: 144.70274), coverageRadius: 10.0, type: .CCMercuryVapor),
     StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.195572, longitude: 144.70308), coverageRadius: 10.0, type: .CCMercuryVapor),
@@ -34,5 +39,5 @@ let ExampleStreetLights: [StreetLight] = [
 let LightStrokeColor: UIColor = UIColor.yellowColor()
 let LightFillColor: UIColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)
 
-let TreeStrokeColor: UIColor = UIColor.greenColor()
-let TreeFillColor: UIColor = UIColor.greenColor().colorWithAlphaComponent(0.5)
+let TreeStrokeColor: UIColor = UIColor(red: CGFloat(0.13333333333333), green: CGFloat(0.70980392156863), blue: CGFloat(0.45098039215686), alpha: CGFloat(0.0))
+let TreeFillColor: UIColor = TreeStrokeColor.colorWithAlphaComponent(0.5)
