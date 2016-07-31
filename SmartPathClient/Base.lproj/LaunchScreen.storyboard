@@ -22,7 +22,9 @@
                                 <rect key="frame" x="140" y="257" width="320" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="j97-XJ-rAQ" secondAttribute="height" multiplier="455:121" id="PdJ-GU-bwG"/>
-                                    <constraint firstAttribute="width" constant="320" id="g2W-Id-Yt0"/>
+                                    <constraint firstAttribute="width" constant="320" id="g2W-Id-Yt0">
+                                        <variation key="widthClass=compact" constant="240"/>
+                                    </constraint>
                                 </constraints>
                             </imageView>
                         </subviews>
