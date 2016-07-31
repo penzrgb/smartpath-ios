@@ -21,10 +21,6 @@ class StreetLightsService: NSObject {
     func findLightsInRegion(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D,
                             completion: (([StreetLight], NSError?)->()))
     {
-        /*let latMin = region.center.latitude - (0.5 * region.span.latitudeDelta);
-        let latMax = region.center.latitude + (0.5 * region.span.latitudeDelta);
-        let lonMin = region.center.longitude - (0.5 * region.span.longitudeDelta);
-        let lonMax = region.center.longitude + (0.5 * region.span.longitudeDelta);*/
         let latMin = min(topLeft.latitude, bottomRight.latitude)
         let latMax = max(topLeft.latitude, bottomRight.latitude)
         let lonMin = min(topLeft.longitude, bottomRight.longitude)
