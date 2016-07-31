@@ -82,7 +82,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         // Create the light surface
         self.lightSurface = LightSurface(frame: self.mapContainer.bounds)
-        self.lightSurface.alpha = 0.7
+        //self.lightSurface.alpha = 0.7
+        self.lightSurface.alpha = 0.0
         self.lightSurface.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.lightSurface.frame = self.mapContainer.bounds
         self.mapContainer.addSubview(self.lightSurface)
@@ -118,10 +119,19 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         }
         
         for tree in trees {
-            self.generateTree(CLLocationCoordinate2DMake(tree["latitude"]!!.doubleValue, tree["longitude"]!!.doubleValue), radius: LightRadius)
+            self.generateTree(CLLocationCoordinate2DMake(tree["latitude"]!!.doubleValue, tree["longitude"]!!.doubleValue), radius: TreeRadius)
         }
     }
     
+    func LightsUpdated(lights: NSArray) {
+        if (lights.count == 0) {
+            return
+        }
+        
+        for light in lights {
+            self.generateTree(CLLocationCoordinate2DMake(light["latitude"]!!.doubleValue, light["longitude"]!!.doubleValue), radius: LightRadius)
+        }
+    }
 
     //MARK: GMSMapViewDelegate
     
