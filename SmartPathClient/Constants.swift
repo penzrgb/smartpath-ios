@@ -9,21 +9,27 @@ import Foundation
 import CoreLocation
 import UIKit
 
+let GoogleAPIKey = "AIzaSyAM2PI58TjKpsyu038eW8wdbC-StauLw7g"
+
 enum LightType {
     case CCMercuryVapor
     case HPSodium
 }
 
-let ArrayOfLightPoints: [(lat: CLLocationDegrees, long: CLLocationDegrees, type: LightType)] = [
-    (-38.197111, 144.70274, .CCMercuryVapor),
-    (-38.195572, 144.70308, .CCMercuryVapor),
-    (-38.196415, 144.70311, .CCMercuryVapor),
-    (-38.197078, 144.70381, .CCMercuryVapor),
-    (-38.196549, 144.70419, .CCMercuryVapor),
-    (-38.146425, 144.70553, .HPSodium)
-]
+struct StreetLight {
+    var coordinate: CLLocationCoordinate2D
+    var coverageRadius: CLLocationDistance
+    var type: LightType
+}
 
-let LightRadius: CLLocationDistance = 10.0
+let ExampleStreetLights: [StreetLight] = [
+    StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.197111, longitude: 144.70274), coverageRadius: 10.0, type: .CCMercuryVapor),
+    StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.195572, longitude: 144.70308), coverageRadius: 10.0, type: .CCMercuryVapor),
+    StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.196415, longitude: 144.70311), coverageRadius: 10.0, type: .CCMercuryVapor),
+    StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.197078, longitude: 144.70381), coverageRadius: 10.0, type: .CCMercuryVapor),
+    StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.196549, longitude: 144.70419), coverageRadius: 10.0, type: .CCMercuryVapor),
+    StreetLight(coordinate: CLLocationCoordinate2D(latitude: -38.146425, longitude: 144.70553), coverageRadius: 10.0, type: .HPSodium)
+]
 
 let LightStrokeColor: UIColor = UIColor.yellowColor()
 let LightFillColor: UIColor = UIColor.yellowColor().colorWithAlphaComponent(0.5)

@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 import CoreLocation
 
 class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, LocationSearchControllerDelegate {
@@ -22,6 +23,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     @IBOutlet private var searchController: LocationSearchController!
     
     private var mapView: GMSMapView!
+    private var lightSurface: LightSurface!
     
     private var destMarker: GMSMarker? {
         willSet {
@@ -70,6 +72,13 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.mapView.frame = self.mapContainer.bounds
         self.mapContainer.addSubview(mapView)
+        
+        // Create the light surface
+        self.lightSurface = LightSurface(frame: self.mapContainer.bounds)
+        self.lightSurface.alpha = 0.7
+        self.lightSurface.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.lightSurface.frame = self.mapContainer.bounds
+        self.mapContainer.addSubview(self.lightSurface)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -114,15 +123,17 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         // TODO: Determine mode the user is in. Is the user in the Light mode or Trees mode?
         
-        for lightSource in ArrayOfLightPoints {
-            self.generateLight(CLLocationCoordinate2DMake(lightSource.lat, lightSource.long), radius: LightRadius)
-        }
+    }
+    
+    func mapViewSnapshotReady(mapView: GMSMapView) {
+        self.renderLights(ExampleStreetLights)
     }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
         if gesture {
             self.userTrackingEnabled = false
         }
+        self.lightSurface.removeAllLights()
     }
     
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
@@ -190,7 +201,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         UIView.animateWithDuration(0.5, animations: { 
             self.view.layoutIfNeeded()
         }) { _ in
-            UIView.animateWithDuration(0.1, animations: { 
+            UIView.animateWithDuration(0.2, animations: {
                 self.summaryLabel.alpha = 1.0
             })
         }
@@ -205,6 +216,30 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
 
     
     //Private methods
+    
+    private func renderLights(lights: [StreetLight]) {
+        let projection = self.mapView.projection
+        let lightSurface = self.lightSurface
+        let bounds = lightSurface.bounds
+        let lightColor = UIColor.whiteColor()
+        
+        lightSurface.removeAllLights()
+        for light in lights {
+            let center = projection.pointForCoordinate(light.coordinate)
+            let radius = projection.pointsForMeters(light.coverageRadius,
+                                                    atCoordinate: light.coordinate)
+            
+            let testRect = CGRectMake(center.x - (radius/2),
+                                      center.y - (radius/2),
+                                      radius, radius)
+            if CGRectIntersectsRect(bounds, testRect) {
+                NSLog("Drawing light at \(center) with radius of (\(radius) points")
+                lightSurface.addLight(
+                    LightSource(center: center, radius: radius, color: lightColor)
+                )
+            }
+        }
+    }
     
     private func generateLight(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
         self.placeCircleOnMap(coordinate, radius: radius, strokeColor: LightStrokeColor, fillColor: LightFillColor)
