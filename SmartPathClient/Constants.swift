@@ -23,6 +23,8 @@ let ArrayOfLightPoints: [(lat: CLLocationDegrees, long: CLLocationDegrees, type:
     (-38.146425, 144.70553, .HPSodium)
 ]
 
+let ApiPath = "http://localhost:3000"
+
 let LightRadius: CLLocationDistance = 10.0
 
 let LightStrokeColor: UIColor = UIColor.yellowColor()

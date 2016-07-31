@@ -20,6 +20,7 @@
 		366917BC1D4C2C4A00836477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366917BA1D4C2C4A00836477 /* LaunchScreen.storyboard */; };
 		366917C71D4C2C4A00836477 /* SmartPathClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917C61D4C2C4A00836477 /* SmartPathClientTests.swift */; };
 		366917D21D4C2C4A00836477 /* SmartPathClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */; };
+		36EA6FDF1D4D836D003385B3 /* SmartPathAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA6FDE1D4D836D003385B3 /* SmartPathAPIManager.swift */; };
 		F248B9E183DC7F5BA667192F /* Pods_SmartPathClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F8309397CFD3A1C048D16B /* Pods_SmartPathClientUITests.framework */; };
 		FAFE7F881D68A941A3CA1014 /* Pods_SmartPathClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE521CE134F0073B5F7F74FD /* Pods_SmartPathClient.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		366917CD1D4C2C4A00836477 /* SmartPathClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPathClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		366917D11D4C2C4A00836477 /* SmartPathClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPathClientUITests.swift; sourceTree = "<group>"; };
 		366917D31D4C2C4A00836477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36EA6FDE1D4D836D003385B3 /* SmartPathAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartPathAPIManager.swift; sourceTree = "<group>"; };
 		8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPathClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0FEA398EB790919C8F82BF /* Pods-SmartPathClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClient/Pods-SmartPathClient.release.xcconfig"; sourceTree = "<group>"; };
 		A0A9BA5910731CAD7A141A0B /* Pods-SmartPathClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientTests/Pods-SmartPathClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				219D43A01D4C3E2C00C39EBB /* Resources */,
 				366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */,
 				219D43A61D4C631400C39EBB /* LocationSearchController.swift */,
+				36EA6FDE1D4D836D003385B3 /* SmartPathAPIManager.swift */,
 			);
 			path = SmartPathClient;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				366917B71D4C2C4900836477 /* SmartPathClient.xcdatamodeld in Sources */,
 				366917B11D4C2C4900836477 /* ViewController.swift in Sources */,
 				219D43A71D4C631400C39EBB /* LocationSearchController.swift in Sources */,
+				36EA6FDF1D4D836D003385B3 /* SmartPathAPIManager.swift in Sources */,
 				366917AF1D4C2C4900836477 /* AppDelegate.swift in Sources */,
 				219D439F1D4C324700C39EBB /* Global.swift in Sources */,
 				219D439E1D4C324700C39EBB /* Constants.swift in Sources */,
