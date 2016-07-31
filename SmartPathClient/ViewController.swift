@@ -16,6 +16,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     private let DefaultZoomLevel: Float = 18.0
     private let DefaultMapCenter = CLLocationCoordinate2D(latitude: -38.149918, longitude: 144.361719)
     private let ZoomEdgeInsets = UIEdgeInsetsMake(140, 30, 30, 30)
+    private let CouncilDataOffset = CLLocationCoordinate2DMake(0.0015, 0.0015)
     
     private var debuffMapChange: Bool = false
     
@@ -55,7 +56,6 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
     
     private lazy var locationManager = CLLocationManager()
-    private lazy var streetLightsService = StreetLightsService()
     
     private var circles: [GMSCircle] = []
     
@@ -83,8 +83,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         // Create the light surface
         self.lightSurface = LightSurface(frame: self.mapContainer.bounds)
-        //self.lightSurface.alpha = 0.7
-        self.lightSurface.alpha = 0.0
+        self.lightSurface.alpha = 0.7
         self.lightSurface.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.lightSurface.frame = self.mapContainer.bounds
         self.mapContainer.addSubview(self.lightSurface)
@@ -125,13 +124,23 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
     
     func LightsUpdated(lights: NSArray) {
+        NSLog("Service returned \(lights.count) lights")
         if (lights.count == 0) {
             return
         }
         
+        var models: [StreetLight] = []
         for light in lights {
-            self.generateTree(CLLocationCoordinate2DMake(light["latitude"]!!.doubleValue, light["longitude"]!!.doubleValue), radius: LightRadius)
+            models.append(StreetLight(
+                coordinate: self.councilToReal(
+                    CLLocationCoordinate2DMake(light["latitude"]!!.doubleValue,
+                        light["longitude"]!!.doubleValue)
+                ),
+                coverageRadius: LightRadius,
+                type: .CCMercuryVapor
+            ))
         }
+        self.renderLights(models)
     }
 
     //MARK: GMSMapViewDelegate
@@ -162,19 +171,10 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
     
     func mapViewSnapshotReady(mapView: GMSMapView) {
-        let region = self.mapView.projection.visibleRegion()
-        self.streetLightsService.findLightsInRegion(region.farLeft, bottomRight: region.nearRight) { (lights, error) in
-            
-            if let error = error {
-                NSLog("\(self.dynamicType): Failed to query street lights: \(error)")
-            } else {
-                NSLog("\(self.dynamicType): Found \(lights.count) lights")
-                runOnMainThread {
-                    self.renderLights(lights)
-                }
-            }
-            
-        }
+        let mapBounds = self.getVisibleMapBoundaries()
+        let tl = self.realToCouncil(mapBounds.0)
+        let br = self.realToCouncil(mapBounds.1)
+        self.api!.getLightsInBounds(tl.latitude, longTopLeft: tl.longitude, latBottomRight: br.latitude, longBottomRight: br.longitude)
     }
     
     func debuffTimer() {
@@ -267,7 +267,15 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
 
     
-    //Private methods
+    //MARK: Private methods
+    
+    private func councilToReal(coordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(coordinate.latitude + CouncilDataOffset.latitude, coordinate.longitude + CouncilDataOffset.longitude)
+    }
+    
+    private func realToCouncil(coordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(coordinate.latitude - CouncilDataOffset.latitude, coordinate.longitude - CouncilDataOffset.longitude)
+    }
     
     private func renderLights(lights: [StreetLight]) {
         let projection = self.mapView.projection

@@ -19,6 +19,7 @@ class SmartPathAPIManager {
     var delegate: SmartPathAPIManagerDelegate?
     
     func getTreesInBounds(latTopLeft: Double, longTopLeft: Double, latBottomRight: Double, longBottomRight: Double) {
+        NSLog("Rquesting trees...")
         Alamofire.request(.POST, ApiPath + "/trees/bounds", parameters: [
             "data":
                 [
@@ -29,6 +30,7 @@ class SmartPathAPIManager {
                 ]
             ], encoding: .JSON)
             .responseJSON { response in
+                NSLog("Received tree response")
                 if let JSON = response.result.value {
                     self.delegate?.TreesUpdated(JSON as! NSArray)
                 }
@@ -36,6 +38,7 @@ class SmartPathAPIManager {
     }
     
     func getLightsInBounds(latTopLeft: Double, longTopLeft: Double, latBottomRight: Double, longBottomRight: Double) {
+        NSLog("Rquesting lights...")
         Alamofire.request(.POST, ApiPath + "/lights/bounds", parameters: [
             "data":
                 [
@@ -46,6 +49,7 @@ class SmartPathAPIManager {
             ]
             ], encoding: .JSON)
             .responseJSON { response in
+                NSLog("Received light response")
                 if let JSON = response.result.value {
                     self.delegate?.LightsUpdated(JSON as! NSArray)
                 }
