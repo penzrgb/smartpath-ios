@@ -22,7 +22,7 @@ struct StreetLight {
     var type: LightType
 }
 
-let ApiPath = "http://localhost:3000"
+let ApiPath = "http://54.206.63.152:3000"
 
 let LightRadius: CLLocationDistance = 10.0
 let ExampleStreetLights: [StreetLight] = [
