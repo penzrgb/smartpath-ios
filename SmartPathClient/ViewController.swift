@@ -51,6 +51,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
     
     private lazy var locationManager = CLLocationManager()
+    private lazy var streetLightsService = StreetLightsService()
     
     private var circles: [GMSCircle] = []
     
@@ -126,7 +127,19 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
     
     func mapViewSnapshotReady(mapView: GMSMapView) {
-        self.renderLights(ExampleStreetLights)
+        let region = self.mapView.projection.visibleRegion()
+        self.streetLightsService.findLightsInRegion(region.farLeft, bottomRight: region.nearRight) { (lights, error) in
+            
+            if let error = error {
+                NSLog("\(self.dynamicType): Failed to query street lights: \(error)")
+            } else {
+                NSLog("\(self.dynamicType): Found \(lights.count) lights")
+                runOnMainThread {
+                    self.renderLights(lights)
+                }
+            }
+            
+        }
     }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {

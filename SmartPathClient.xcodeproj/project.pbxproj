@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		085D2C972AF201E57153992F /* Pods_SmartPathClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF9503A6A368585D511FAA7 /* Pods_SmartPathClientTests.framework */; };
 		2124ED0F1D4CBDC400DBD167 /* LightSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124ED0E1D4CBDC400DBD167 /* LightSurface.swift */; };
+		2142DCFA1D4DB7A000F86695 /* StreetLightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142DCF91D4DB7A000F86695 /* StreetLightsService.swift */; };
 		219D439E1D4C324700C39EBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D439C1D4C324700C39EBB /* Constants.swift */; };
 		219D439F1D4C324700C39EBB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D439D1D4C324700C39EBB /* Global.swift */; };
 		219D43A41D4C3E2C00C39EBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219D43A11D4C3E2C00C39EBB /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		1C60DD681B14A6D651907210 /* Pods-SmartPathClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPathClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPathClientUITests/Pods-SmartPathClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2124ED0E1D4CBDC400DBD167 /* LightSurface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightSurface.swift; sourceTree = "<group>"; };
+		2142DCF91D4DB7A000F86695 /* StreetLightsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetLightsService.swift; sourceTree = "<group>"; };
 		219D439C1D4C324700C39EBB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		219D439D1D4C324700C39EBB /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		219D43A11D4C3E2C00C39EBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				219D43A01D4C3E2C00C39EBB /* Resources */,
 				366917B51D4C2C4900836477 /* SmartPathClient.xcdatamodeld */,
 				219D43A61D4C631400C39EBB /* LocationSearchController.swift */,
+				2142DCF91D4DB7A000F86695 /* StreetLightsService.swift */,
 			);
 			path = SmartPathClient;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				2124ED0F1D4CBDC400DBD167 /* LightSurface.swift in Sources */,
 				219D439F1D4C324700C39EBB /* Global.swift in Sources */,
 				219D439E1D4C324700C39EBB /* Constants.swift in Sources */,
+				2142DCFA1D4DB7A000F86695 /* StreetLightsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
